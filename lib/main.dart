@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_uas_kelompok6/screen/onBoard_Screen2.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // package dari font_awesome_flutter
 import 'package:animate_do/animate_do.dart'; // package dari animate_do
 
@@ -7,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp ({super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
 }
 
 class OnboardingScreen extends StatelessWidget {
-  const OnboardingScreen ({super.key});
+  const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class OnboardingScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const SizedBox(height: 20),       
+                  const SizedBox(height: 20),
                   // Gambar utama
                   Container(
                     width: 330,
@@ -65,13 +66,25 @@ class OnboardingScreen extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   // Indicator dan Button
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          shape: const CircleBorder(),
+                          padding: const EdgeInsets.all(12),
+                          backgroundColor: const Color(0xFF8e7ab5),
+                        ),
+                        child: const FaIcon(
+                          FontAwesomeIcons.arrowLeft,
+                          color: Colors.white,
+                        ),
+                      ),
                       // Dots Indicator (Dynamic with List.generate)
-                      SizedBox(width: 50),
+                      // SizedBox(),
                       Row(
                         children: List.generate(
                           3, // Jumlah bulat-bulat
@@ -80,7 +93,7 @@ class OnboardingScreen extends StatelessWidget {
                             child: CircleAvatar(
                               radius: 5,
                               backgroundColor: index == 0
-                                  ? Colors.purple
+                                  ? const Color(0xFF8e7ab5)
                                   : Colors.grey.shade400,
                             ),
                           ),
@@ -89,21 +102,24 @@ class OnboardingScreen extends StatelessWidget {
                       // Next Button
                       ElevatedButton(
                         onPressed: () {
-                          // Tambahkan aksi next di sini
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const OnBoardApp2()),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
-                          shape: CircleBorder(),
-                          padding: EdgeInsets.all(12),
-                          backgroundColor: Color(0xFF8e7ab5), // Warna button
+                          shape: const CircleBorder(),
+                          padding: const EdgeInsets.all(12),
+                          backgroundColor: const Color(0xFF8e7ab5), // Warna button
                         ),
-                        child: FaIcon(
+                        child: const FaIcon(
                           FontAwesomeIcons.arrowRight,
                           color: Colors.white,
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
